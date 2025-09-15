@@ -50,7 +50,7 @@ async def find_match(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if current_week != last_browse_week:
             browse_count = 0
         browse_count += 1
-                storage.set_user_property(user_id, 'weekly_browse_count', browse_count)
+        storage.set_user_property(user_id, 'weekly_browse_count', browse_count)
         storage.set_user_property(user_id, 'last_browse_week', current_week)
     
     # Get all profiles
@@ -287,4 +287,3 @@ async def view_likes(update: Update, context: ContextTypes.DEFAULT_TYPE):
     storage.set_bot_property(f"seen_likes_{user_id}", len(likes))
     
     await query.edit_message_text(message, parse_mode=ParseMode.MARKDOWN)
-
